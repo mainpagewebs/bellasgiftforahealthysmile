@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accomplishments</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="title">My Accomplishments</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="blog.html">Blog</a>
+      <a href="mychildrensbooks.html">My Children's Books</a>
+      <a href="accomplishments.html">Accomplishments</a>
+      <a href="personalstatement.html">Personal Statement</a>
+    </nav>
+  </header>
+  <main>
+    <h2>Book in the Library of Congress</h2>
+<center>
+  <div class="image-container">
+    <img src="Daisy Teaches Tinsel How To Brush His Teeth.png" alt="Daisy Teaches Tinsel How To Brush His Teeth">
+    <br>
+    <a href="book3-details.html" class="back-button" style="margin-top: 20px;">Learn More</a>
+  </div>
+</center>
+  <div class="text-container">
+    <!-- You can add a description here if you want -->
+  </div>
+</div>
+    <!-- First Section -->
+    <h2>Texas Children's Mission</h2>
+    <section class="accomplishments-section">
+      <div class="accomplishment">
+        <p>All of the profits made from the books will go towards the Texas Children’s Hospital Heart Gift Medical Mission to Kenya and Bolivia for the Cardiac Heart Surgeries/Care!</p>
+      </div>
+      <!-- Image Carousel -->
+      <div class="carousel" id="carousel1">
+        <button class="prev" onclick="changeSlide('carousel1', -1)">&#10094;</button>
+        <div class="carousel-images">
+          <img src="txchildrens1.png" alt="Mission Image 1" class="active">
+          <img src="txchildrens2.png" alt="Mission Image 2">
+          <img src="txchildrens3.png" alt="Mission Image 3">
+          <img src="txchildrens4.png" alt="Mission Image 4">
+        </div>
+        <button class="next" onclick="changeSlide('carousel1', 1)">&#10095;</button>
+      </div>
+    </section>
+
+    <!-- Second Section -->
+    <h2>Showcasing My Mission</h2>
+    <section class="accomplishments-section">
+      <div class="accomplishment">
+        <p>Spreading healthy smiles in my community.</p>
+      </div>
+      <!-- Image Carousel -->
+      <div class="carousel" id="carousel2">
+        <button class="prev" onclick="changeSlide('carousel2', -1)">&#10094;</button>
+        <div class="carousel-images">
+          <img src="littlematts1.png" alt="Mission Image 1" class="active">
+          <img src="littlematts2.png" alt="Mission Image 2">
+          <img src="bluedental.png" alt="Mission Image 3">
+          <img src="greaterhoustonortho.png" alt="Mission Image 4">
+        </div>
+        <button class="next" onclick="changeSlide('carousel2', 1)">&#10095;</button>
+      </div>
+    </section>
+
+    <!-- Third Section -->
+    <h2>Top Release</h2>
+    <section class="accomplishments-section">
+      <div class="accomplishment">
+        <p>Reached Top Release ranking on amazon for Dental Pediatrics.</p>
+      </div>
+      <!-- Image Carousel -->
+      <div class="carousel" id="carousel3">
+        <button class="prev" onclick="changeSlide('carousel3', -1)">&#10094;</button>
+        <div class="carousel-images">
+          <img src="toprelease1.png" alt="Community Outreach Image 1" class="active">
+          <img src="toprelease2.png" alt="Community Outreach Image 2">
+        </div>
+        <button class="next" onclick="changeSlide('carousel3', 1)">&#10095;</button>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Bellas Gift for A Healthy Smile</p>
+  </footer>
+<script>
+  let isSliding = false;
+
+  function changeSlide(carouselId, direction) {
+    if (isSliding) return; // Prevent rapid clicks
+    isSliding = true;
+
+    const carousel = document.getElementById(carouselId);
+    const slides = carousel.querySelectorAll('.carousel-images img');
+    let currentSlide = Array.from(slides).findIndex(slide => slide.classList.contains('active'));
+    let nextSlide = (currentSlide + direction + slides.length) % slides.length;
+
+    // Remove all slide classes
+    slides.forEach(img => {
+      img.classList.remove('slide-left', 'slide-right');
+    });
+
+    // Animate out current slide
+    slides[currentSlide].classList.remove('active');
+    slides[currentSlide].classList.add(direction > 0 ? 'slide-left' : 'slide-right');
+
+    // Animate in next slide
+    slides[nextSlide].classList.add('active');
+    slides[nextSlide].classList.add(direction > 0 ? 'slide-right' : 'slide-left');
+
+    // After animation, clean up classes
+    setTimeout(() => {
+      slides.forEach((img, idx) => {
+        img.classList.remove('slide-left', 'slide-right');
+        if (idx === nextSlide) img.classList.add('active');
+        else img.classList.remove('active');
+      });
+      isSliding = false;
+    }, 400);
+  }
+
+  // On page load, ensure only one image is active
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.carousel-images').forEach(container => {
+      const imgs = container.querySelectorAll('img');
+      let foundActive = false;
+      imgs.forEach((img, idx) => {
+        if (img.classList.contains('active')) foundActive = true;
+        else img.classList.remove('active', 'slide-left', 'slide-right');
+      });
+      if (!foundActive && imgs.length) imgs[0].classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
