@@ -4,6 +4,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="stylesheet" href="style.css">
+  <!-- Preloader styles in <head> -->
+<style>
+  #preloader {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.3s;
+  }
+  #preloader img {
+    width: 500px;
+    height: 500px;
+    border-radius: 32px; /* Rounded corners */
+    /* No animation, just still */
+  }
+  #preloader.hide {
+    opacity: 0;
+    pointer-events: none;
+  }
+</style>
+</head>
+<body>
+  <!-- Preloader markup at the top of <body> -->
+<div id="preloader">
+  <img src="logo.png" alt="Loading..." />
+</div>
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -26,5 +57,33 @@
   <footer>
     <p>&copy; 2025 Bellas Gift for A Healthy Smile</p>
   </footer>
+  <!-- Preloader script before </body> -->
+<script>
+  // Show preloader for 1.2s on page load
+  window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+      document.getElementById('preloader').classList.add('hide');
+    }, 1200);
+  });
+
+  // Show preloader on navigation
+  document.querySelectorAll('a[href]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const url = this.getAttribute('href');
+      if (
+        url &&
+        !url.startsWith('http') &&
+        !url.startsWith('#') &&
+        !this.hasAttribute('target')
+      ) {
+        e.preventDefault();
+        document.getElementById('preloader').classList.remove('hide');
+        setTimeout(() => {
+          window.location.href = url;
+        }, 1200);
+      }
+    });
+  });
+</script>
 </body>
 </html>
