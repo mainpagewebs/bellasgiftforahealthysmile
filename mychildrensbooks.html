@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Children's Books</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="stylesheet" href="style.css">
+  <!-- Preloader styles in <head> -->
+<style>
+  #preloader {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.3s;
+  }
+  #preloader img {
+    width: 500px;
+    height: 500px;
+    border-radius: 32px; /* Rounded corners */
+    /* No animation, just still */
+  }
+  #preloader.hide {
+    opacity: 0;
+    pointer-events: none;
+  }
+</style>
+</head>
+<body>
+  <!-- Preloader markup at the top of <body> -->
+<div id="preloader">
+  <img src="logo.png" alt="Loading..." />
+</div>
+  <header>
+    <div class="title">My Children's Books</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="blog.html">Blog</a>
+      <a href="mychildrensbooks.html">My Children's Books</a>
+      <a href="accomplishments.html">Accomplishments</a>
+      <a href="personalstatement.html">Personal Statement</a>
+    </nav>
+  </header>
+  <main>
+    <!-- Gallery Section -->
+    <section class="gallery">
+      <div class="gallery-container">
+        <div class="gallery-item">
+          <a href="book1-details.html">
+            <img src="La aventura boliviana de Daisy y Lulu.png" alt="Book 1" />
+            <p class="image-caption">La aventura boliviana de Daisy y Lulu</p>
+          </a>
+        </div>
+        <div class="gallery-item">
+          <a href="book2-details.html">
+            <img src="Daisy Teaches Vlad About Braces.png" alt="Book 2" />
+            <p class="image-caption">Daisy Teaches Vlad About Braces</p>
+          </a>
+        </div>
+        <div class="gallery-item">
+          <a href="book3-details.html">
+            <img src="Daisy Teaches Tinsel How To Brush His Teeth.png" alt="Book 3" />
+            <p class="image-caption">Daisy Teaches Tinsel How To Brush His Teeth</p>
+          </a>
+        </div>
+        <div class="gallery-item">
+          <a href="book4-details.html">
+            <img src="Daisy's Emergency Dental Check Up.png" alt="Book 4" />
+            <p class="image-caption">Daisy's Emergency Dental Check Up</p>
+          </a>
+        </div>
+        <div class="gallery-item">
+          <a href="book5-details.html">
+            <img src="Dentistry Coloring Book For Kids.png" alt="Book 4" />
+            <p class="image-caption">Dentistry Coloring Book For Kids </p>
+          </a>
+        </div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Bellas Gift for A Healthy Smile</p>
+  </footer>
+  <!-- Preloader script before </body> -->
+<script>
+  // Show preloader for 1.2s on page load
+  window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+      document.getElementById('preloader').classList.add('hide');
+    }, 1200);
+  });
+
+  // Show preloader on navigation
+  document.querySelectorAll('a[href]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const url = this.getAttribute('href');
+      if (
+        url &&
+        !url.startsWith('http') &&
+        !url.startsWith('#') &&
+        !this.hasAttribute('target')
+      ) {
+        e.preventDefault();
+        document.getElementById('preloader').classList.remove('hide');
+        setTimeout(() => {
+          window.location.href = url;
+        }, 1200);
+      }
+    });
+  });
+</script>
+</body>
+</html>
