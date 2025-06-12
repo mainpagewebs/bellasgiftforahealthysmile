@@ -63,7 +63,7 @@ nav a {
 }
 
 nav a:hover {
-  color: #0056b3; /* Blue accent color on hover */
+  color: #ff5188; /* Blue accent color on hover */
 }
 
 /* Main Content Section */
@@ -142,7 +142,7 @@ button {
 }
 
 button:hover {
-  background-color: #0056b3; /* Blue accent color on hover */
+  background-color: #ff5188; /* Blue accent color on hover */
 }
 
 /* Gallery Section */
@@ -253,7 +253,7 @@ button:hover {
 }
 
 .back-button:hover {
-  background-color: #0088ff; /* Blue background on hover */
+  background-color: #ff5188; /* Blue background on hover */
 }
 
 .amazon-button {
@@ -304,7 +304,7 @@ button:hover {
 }
 
 .back-button:hover {
-  background-color: #0056b3; /* Blue background on hover */
+  background-color: #ff5188; /* Blue background on hover */
 }
 
 /* Carousel Styling */
