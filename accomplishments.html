@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,41 +7,110 @@
   <title>Accomplishments</title>
   <link rel="icon" type="image/png" href="logo.png">
   <link rel="stylesheet" href="style.css">
-  <!-- Preloader styles in <head> -->
-<style>
-  #preloader {
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    transition: opacity 0.3s;
-  }
-  #preloader img {
-    width: 500px;
-    height: 500px;
-    border-radius: 32px; /* Rounded corners */
-    /* No animation, just still */
-  }
-  #preloader.hide {
-    opacity: 0;
-    pointer-events: none;
-  }
-</style>
+
+  <style>
+    /* Original Preloader Styling */
+    #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.3s;
+    }
+
+    #preloader img {
+      width: 500px;
+      height: 500px;
+      border-radius: 32px;
+    }
+
+    #preloader.hide {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* Library of Congress Book Layout */
+    .library-books {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin: 20px auto 40px;
+    }
+
+    .library-book {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      flex: 0 1 400px;
+      min-width: 0;
+    }
+
+    .library-book img {
+      display: block;
+      width: 400px;
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .library-book .back-button {
+      margin-top: 0;
+      text-align: center;
+    }
+
+    /* Tablet Layout */
+    @media (max-width: 900px) {
+      .library-books {
+        gap: 20px;
+      }
+
+      .library-book {
+        flex: 0 1 45%;
+      }
+    }
+
+    /* Phone Layout */
+    @media (max-width: 600px) {
+      .library-books {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+      }
+
+      .library-book {
+        flex: none;
+        width: 100%;
+      }
+
+      .library-book img {
+        width: 60%;
+        max-width: 100%;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <!-- Preloader markup at the top of <body> -->
-<div id="preloader">
-  <img src="logo.png" alt="Loading..." />
-</div>
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <img src="logo.png" alt="Loading...">
+  </div>
+
+  <!-- Header -->
   <header>
     <div class="title">My Accomplishments</div>
+
     <nav>
       <a href="index.html">Home</a>
       <a href="blog.html">Blog</a>
@@ -49,28 +119,84 @@
       <a href="personalstatement.html">Personal Statement</a>
     </nav>
   </header>
+
   <main>
+
+    <!-- Library of Congress Section -->
     <h2>Book in the Library of Congress</h2>
-<center>
-  <div class="image-container">
-    <img src="Daisy Teaches Tinsel How To Brush His Teeth.png" alt="Daisy Teaches Tinsel How To Brush His Teeth">
-    <br>
-    <a href="book3-details.html" class="back-button" style="margin-top: 20px;">Learn More</a>
-  </div>
-</center>
-  <div class="text-container">
-    <!-- You can add a description here if you want -->
-  </div>
-</div>
+
+    <div class="library-books">
+
+      <!-- Book 1: Original Book -->
+      <div class="library-book">
+        <img
+          src="Daisy Teaches Tinsel How To Brush His Teeth.png"
+          alt="Daisy Teaches Tinsel How To Brush His Teeth"
+        >
+
+        <a
+          href="book3-details.html"
+          class="back-button"
+        >
+          Learn More
+        </a>
+      </div>
+
+      <!-- Book 2: Pink Book -->
+      <div class="library-book">
+        <img
+          src="Daisy Welcomes Snuggles To A Healthy Heart.png"
+          alt="Daisy Welcomes Snuggles To A Healthy Heart"
+        >
+
+        <a
+          href="book6-details.html"
+          class="back-button"
+        >
+          Learn More
+        </a>
+      </div>
+
+      <!-- Book 3: Blue Book -->
+      <div class="library-book">
+        <img
+          src="Daisys Journey With Dr Leo And The Super Blood Cell Team.png"
+          alt="Daisy's Journey With Dr. Leo And The Super Blood Cell Team"
+        >
+
+        <a
+          href="book7-details.html"
+          class="back-button"
+        >
+          Learn More
+        </a>
+      </div>
+
+    </div>
+
     <!-- First Section -->
     <h2>Texas Children's Mission</h2>
+
     <section class="accomplishments-section">
+
       <div class="accomplishment">
-        <p>All of the profits made from the books will go towards the Texas Children’s Hospital Heart Gift Medical Mission to Kenya and Bolivia for the Cardiac Heart Surgeries/Care!</p>
+        <p>
+          All of the profits made from the books will go towards
+          the Texas Children’s Hospital Heart Gift Medical Mission
+          to Kenya and Bolivia for the Cardiac Heart Surgeries/Care!
+        </p>
       </div>
-      <!-- Image Carousel -->
+
+      <!-- Image Carousel 1 -->
       <div class="carousel" id="carousel1">
-        <button class="prev" onclick="changeSlide('carousel1', -1)">&#10094;</button>
+
+        <button
+          class="prev"
+          type="button"
+          onclick="changeSlide('carousel1', -1)"
+          aria-label="Previous image"
+        >&#10094;</button>
+
         <div class="carousel-images">
           <img src="txchildrens1.png" alt="Mission Image 1" class="active">
           <img src="txchildrens2.png" alt="Mission Image 2">
@@ -78,125 +204,269 @@
           <img src="txchildrens4.png" alt="Mission Image 4">
           <img src="txchildrens5.png" alt="Mission Image 5">
         </div>
-        <button class="next" onclick="changeSlide('carousel1', 1)">&#10095;</button>
+
+        <button
+          class="next"
+          type="button"
+          onclick="changeSlide('carousel1', 1)"
+          aria-label="Next image"
+        >&#10095;</button>
+
       </div>
+
     </section>
 
     <!-- Second Section -->
     <h2>Showcasing My Mission</h2>
+
     <section class="accomplishments-section">
+
       <div class="accomplishment">
         <p>Spreading healthy smiles in my community.</p>
       </div>
-      <!-- Image Carousel -->
+
+      <!-- Image Carousel 2 -->
       <div class="carousel" id="carousel2">
-        <button class="prev" onclick="changeSlide('carousel2', -1)">&#10094;</button>
+
+        <button
+          class="prev"
+          type="button"
+          onclick="changeSlide('carousel2', -1)"
+          aria-label="Previous image"
+        >&#10094;</button>
+
         <div class="carousel-images">
           <img src="littlematts1.png" alt="Mission Image 1" class="active">
           <img src="littlematts2.png" alt="Mission Image 2">
           <img src="bluedental.png" alt="Mission Image 3">
           <img src="greaterhoustonortho.png" alt="Mission Image 4">
         </div>
-        <button class="next" onclick="changeSlide('carousel2', 1)">&#10095;</button>
+
+        <button
+          class="next"
+          type="button"
+          onclick="changeSlide('carousel2', 1)"
+          aria-label="Next image"
+        >&#10095;</button>
+
       </div>
+
     </section>
 
     <!-- Third Section -->
     <h2>Top Release</h2>
+
     <section class="accomplishments-section">
+
       <div class="accomplishment">
-        <p>Reached Top Release ranking on amazon for Dental Pediatrics.</p>
+        <p>
+          Reached Top Release ranking on amazon for Dental Pediatrics.
+        </p>
       </div>
-      <!-- Image Carousel -->
+
+      <!-- Image Carousel 3 -->
       <div class="carousel" id="carousel3">
-        <button class="prev" onclick="changeSlide('carousel3', -1)">&#10094;</button>
+
+        <button
+          class="prev"
+          type="button"
+          onclick="changeSlide('carousel3', -1)"
+          aria-label="Previous image"
+        >&#10094;</button>
+
         <div class="carousel-images">
-          <img src="toprelease1.png" alt="Community Outreach Image 1" class="active">
-          <img src="toprelease2.png" alt="Community Outreach Image 2">
+          <img
+            src="toprelease1.png"
+            alt="Community Outreach Image 1"
+            class="active"
+          >
+          <img
+            src="toprelease2.png"
+            alt="Community Outreach Image 2"
+          >
         </div>
-        <button class="next" onclick="changeSlide('carousel3', 1)">&#10095;</button>
+
+        <button
+          class="next"
+          type="button"
+          onclick="changeSlide('carousel3', 1)"
+          aria-label="Next image"
+        >&#10095;</button>
+
       </div>
+
     </section>
+
   </main>
+
+  <!-- Footer -->
   <footer>
     <p>&copy; 2025 Bellas Gift for A Healthy Smile</p>
   </footer>
-<script>
-  let isSliding = false;
 
-  function changeSlide(carouselId, direction) {
-    if (isSliding) return; // Prevent rapid clicks
-    isSliding = true;
+  <!-- Improved Carousel JavaScript -->
+  <script>
+    const carouselStates = {};
 
-    const carousel = document.getElementById(carouselId);
-    const slides = carousel.querySelectorAll('.carousel-images img');
-    let currentSlide = Array.from(slides).findIndex(slide => slide.classList.contains('active'));
-    let nextSlide = (currentSlide + direction + slides.length) % slides.length;
+    function changeSlide(carouselId, direction) {
+      const carousel = document.getElementById(carouselId);
+      if (!carousel) return;
 
-    // Remove all slide classes
-    slides.forEach(img => {
-      img.classList.remove('slide-left', 'slide-right');
-    });
+      const slides = Array.from(
+        carousel.querySelectorAll('.carousel-images img')
+      );
 
-    // Animate out current slide
-    slides[currentSlide].classList.remove('active');
-    slides[currentSlide].classList.add(direction > 0 ? 'slide-left' : 'slide-right');
+      if (slides.length < 2) return;
 
-    // Animate in next slide
-    slides[nextSlide].classList.add('active');
-    slides[nextSlide].classList.add(direction > 0 ? 'slide-right' : 'slide-left');
-
-    // After animation, clean up classes
-    setTimeout(() => {
-      slides.forEach((img, idx) => {
-        img.classList.remove('slide-left', 'slide-right');
-        if (idx === nextSlide) img.classList.add('active');
-        else img.classList.remove('active');
-      });
-      isSliding = false;
-    }, 400);
-  }
-
-  // On page load, ensure only one image is active
-  document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.carousel-images').forEach(container => {
-      const imgs = container.querySelectorAll('img');
-      let foundActive = false;
-      imgs.forEach((img, idx) => {
-        if (img.classList.contains('active')) foundActive = true;
-        else img.classList.remove('active', 'slide-left', 'slide-right');
-      });
-      if (!foundActive && imgs.length) imgs[0].classList.add('active');
-    });
-  });
-</script>
-<!-- Preloader script before </body> -->
-<script>
-  // Show preloader for 1.2s on page load
-  window.addEventListener('DOMContentLoaded', () => {
-    setTimeout(() => {
-      document.getElementById('preloader').classList.add('hide');
-    }, 1200);
-  });
-
-  // Show preloader on navigation
-  document.querySelectorAll('a[href]').forEach(link => {
-    link.addEventListener('click', function(e) {
-      const url = this.getAttribute('href');
-      if (
-        url &&
-        !url.startsWith('http') &&
-        !url.startsWith('#') &&
-        !this.hasAttribute('target')
-      ) {
-        e.preventDefault();
-        document.getElementById('preloader').classList.remove('hide');
-        setTimeout(() => {
-          window.location.href = url;
-        }, 1200);
+      if (!carouselStates[carouselId]) {
+        carouselStates[carouselId] = {
+          isSliding: false,
+          currentIndex: Math.max(
+            0,
+            slides.findIndex(img => img.classList.contains('active'))
+          )
+        };
       }
+
+      const state = carouselStates[carouselId];
+
+      // Prevent overlapping animations
+      if (state.isSliding) return;
+
+      state.isSliding = true;
+
+      const currentIndex = state.currentIndex;
+      const nextIndex =
+        (currentIndex + direction + slides.length) % slides.length;
+
+      const currentSlide = slides[currentIndex];
+      const nextSlide = slides[nextIndex];
+
+      // Reset and prepare slides
+      slides.forEach(img => {
+        img.classList.remove('slide-left', 'slide-right');
+        img.style.transition = 'none';
+        img.style.opacity = '0';
+        img.style.transform = 'translateX(0)';
+        img.style.zIndex = '1';
+      });
+
+      // Current image
+      currentSlide.classList.add('active');
+      currentSlide.style.opacity = '1';
+      currentSlide.style.transform = 'translateX(0)';
+      currentSlide.style.zIndex = '2';
+
+      // Position next image outside the carousel
+      nextSlide.classList.remove('active');
+      nextSlide.style.opacity = '1';
+      nextSlide.style.transform =
+        direction > 0
+          ? 'translateX(100%)'
+          : 'translateX(-100%)';
+      nextSlide.style.zIndex = '3';
+
+      // Apply starting positions
+      void nextSlide.offsetWidth;
+
+      // Enable smooth transitions
+      currentSlide.style.transition =
+        'transform 0.4s ease, opacity 0.4s ease';
+
+      nextSlide.style.transition =
+        'transform 0.4s ease, opacity 0.4s ease';
+
+      // Slide current image out
+      currentSlide.style.transform =
+        direction > 0
+          ? 'translateX(-100%)'
+          : 'translateX(100%)';
+
+      // Slide next image in
+      nextSlide.style.transform = 'translateX(0)';
+
+      // Finish animation and clean up
+      setTimeout(() => {
+        slides.forEach((img, index) => {
+          img.style.transition = 'none';
+          img.style.transform = 'translateX(0)';
+          img.style.opacity = '';
+          img.style.zIndex = '';
+
+          img.classList.remove(
+            'active',
+            'slide-left',
+            'slide-right'
+          );
+
+          if (index === nextIndex) {
+            img.classList.add('active');
+          }
+        });
+
+        state.currentIndex = nextIndex;
+        state.isSliding = false;
+      }, 400);
+    }
+
+    // Initialize each carousel separately
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.carousel').forEach(carousel => {
+        const slides = carousel.querySelectorAll(
+          '.carousel-images img'
+        );
+
+        slides.forEach((img, index) => {
+          img.classList.remove(
+            'active',
+            'slide-left',
+            'slide-right'
+          );
+
+          if (index === 0) {
+            img.classList.add('active');
+          }
+        });
+
+        carouselStates[carousel.id] = {
+          isSliding: false,
+          currentIndex: 0
+        };
+      });
     });
-  });
-</script>
+  </script>
+
+  <!-- Preloader Script -->
+  <script>
+    // Show preloader for 1.2 seconds on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        document.getElementById('preloader').classList.add('hide');
+      }, 1200);
+    });
+
+    // Show preloader on internal navigation
+    document.querySelectorAll('a[href]').forEach(link => {
+      link.addEventListener('click', function(e) {
+        const url = this.getAttribute('href');
+
+        if (
+          url &&
+          !url.startsWith('http') &&
+          !url.startsWith('#') &&
+          !this.hasAttribute('target')
+        ) {
+          e.preventDefault();
+
+          document.getElementById('preloader').classList.remove('hide');
+
+          setTimeout(() => {
+            window.location.href = url;
+          }, 1200);
+        }
+      });
+    });
+  </script>
+
 </body>
 </html>

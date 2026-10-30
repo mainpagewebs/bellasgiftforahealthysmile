@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,11 +7,15 @@
   <title>Bellas Gift For A Healthy Smile</title>
   <link rel="icon" type="image/png" href="logo.png">
   <link rel="stylesheet" href="style.css" />
+
   <style>
     /* Preloader styles */
     #preloader {
       position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
       background: #fff;
       display: flex;
       align-items: center;
@@ -18,27 +23,26 @@
       z-index: 9999;
       transition: opacity 0.3s;
     }
+
     #preloader img {
       width: 500px;
       height: 500px;
-      border-radius: 32px; /* Rounded corners */
-      /* No animation, just still */
+      border-radius: 32px;
     }
+
     #preloader.hide {
       opacity: 0;
       pointer-events: none;
     }
   </style>
 </head>
+
 <body>
   <!-- Preloader -->
   <div id="preloader">
     <img src="logo.png" alt="Loading..." />
   </div>
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
+
   <header>
     <div class="title">Bellas Gift For A Healthy Smile</div>
     <nav>
@@ -49,38 +53,48 @@
       <a href="personalstatement.html">Personal Statement</a>
     </nav>
   </header>
+
   <main>
     <h2>My Books</h2>
-      <div class="accomplishment">
-      </div>
-        <!-- Gallery Section -->
+
+    <div class="accomplishment">
+    </div>
+
+    <!-- Gallery Section -->
     <section class="gallery">
       <div class="gallery-container">
+
         <div class="gallery-item">
           <a href="book1-details.html">
             <img src="La aventura boliviana de Daisy y Lulu.png" alt="Book 1" />
             <p class="image-caption">La aventura boliviana de Daisy y Lulu</p>
           </a>
         </div>
+
         <div class="gallery-item">
           <a href="book2-details.html">
             <img src="Daisy Teaches Vlad About Braces.png" alt="Book 2" />
             <p class="image-caption">Daisy Teaches Vlad About Braces</p>
           </a>
         </div>
+
         <div class="gallery-item">
           <a href="book3-details.html">
             <img src="Daisy Teaches Tinsel How To Brush His Teeth.png" alt="Book 3" />
             <p class="image-caption">Daisy Teaches Tinsel How To Brush His Teeth</p>
           </a>
         </div>
+
         <div class="gallery-item">
           <a href="book4-details.html">
             <img src="Daisy's Emergency Dental Check Up.png" alt="Book 4" />
             <p class="image-caption">Daisy's Emergency Dental Check Up</p>
           </a>
         </div>
+
+      </div>
     </section>
+
     <div style="text-align:center; margin: 30px 0;">
       <a href="mychildrensbooks.html" class="back-button">View All Books</a>
     </div>
@@ -88,103 +102,208 @@
     <!-- Texas Children's Mission Section -->
     <section class="accomplishments-section">
       <h2>Texas Children's Mission</h2>
+
       <div class="accomplishment">
         <p>All of the profits made from the books will go towards the Texas Children’s Hospital Heart Gift Medical Mission to Kenya and Bolivia for the Cardiac Heart Surgeries/Care!</p>
       </div>
+
       <!-- Image Carousel -->
       <div class="carousel" id="carousel1">
-        <button class="prev" onclick="changeSlide('carousel1', -1)">&#10094;</button>
+
+        <button
+          class="prev"
+          type="button"
+          onclick="changeSlide('carousel1', -1)"
+          aria-label="Previous image"
+        >&#10094;</button>
+
         <div class="carousel-images">
           <img src="txchildrens1.png" alt="Mission Image 1" class="active">
           <img src="txchildrens2.png" alt="Mission Image 2">
           <img src="txchildrens3.png" alt="Mission Image 3">
         </div>
-        <button class="next" onclick="changeSlide('carousel1', 1)">&#10095;</button>
+
+        <button
+          class="next"
+          type="button"
+          onclick="changeSlide('carousel1', 1)"
+          aria-label="Next image"
+        >&#10095;</button>
+
       </div>
     </section>
+
     <div style="text-align:center; margin: 30px 0;">
       <a href="accomplishments.html" class="back-button">View More Accomplishments</a>
     </div>
   </main>
+
   <footer>
     <p>&copy; 2025 Bellas Gift for A Healthy Smile</p>
   </footer>
-<script>
-  let isSliding = false;
 
-  function changeSlide(carouselId, direction) {
-    if (isSliding) return; // Prevent rapid clicks
-    isSliding = true;
+  <!-- Improved Carousel Script -->
+  <script>
+    const carouselStates = {};
 
-    const carousel = document.getElementById(carouselId);
-    const slides = carousel.querySelectorAll('.carousel-images img');
-    let currentSlide = Array.from(slides).findIndex(slide => slide.classList.contains('active'));
-    let nextSlide = (currentSlide + direction + slides.length) % slides.length;
+    function changeSlide(carouselId, direction) {
+      const carousel = document.getElementById(carouselId);
+      if (!carousel) return;
 
-    // Remove all slide classes
-    slides.forEach(img => {
-      img.classList.remove('slide-left', 'slide-right');
-    });
+      const slides = Array.from(
+        carousel.querySelectorAll('.carousel-images img')
+      );
 
-    // Animate out current slide
-    slides[currentSlide].classList.remove('active');
-    slides[currentSlide].classList.add(direction > 0 ? 'slide-left' : 'slide-right');
+      if (slides.length < 2) return;
 
-    // Animate in next slide
-    slides[nextSlide].classList.add('active');
-    slides[nextSlide].classList.add(direction > 0 ? 'slide-right' : 'slide-left');
-
-    // After animation, clean up classes
-    setTimeout(() => {
-      slides.forEach((img, idx) => {
-        img.classList.remove('slide-left', 'slide-right');
-        if (idx === nextSlide) img.classList.add('active');
-        else img.classList.remove('active');
-      });
-      isSliding = false;
-    }, 400);
-  }
-
-  // On page load, ensure only one image is active
-  document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.carousel-images').forEach(container => {
-      const imgs = container.querySelectorAll('img');
-      let foundActive = false;
-      imgs.forEach((img, idx) => {
-        if (img.classList.contains('active')) foundActive = true;
-        else img.classList.remove('active', 'slide-left', 'slide-right');
-      });
-      if (!foundActive && imgs.length) imgs[0].classList.add('active');
-    });
-  });
-</script>
-<script>
-  // Show preloader for 1.2s on page load
-  window.addEventListener('DOMContentLoaded', () => {
-    setTimeout(() => {
-      document.getElementById('preloader').classList.add('hide');
-    }, 1200);
-  });
-
-  // Show preloader on navigation
-  document.querySelectorAll('a[href]').forEach(link => {
-    // Only handle internal links
-    link.addEventListener('click', function(e) {
-      const url = this.getAttribute('href');
-      if (
-        url &&
-        !url.startsWith('http') &&
-        !url.startsWith('#') &&
-        !this.hasAttribute('target')
-      ) {
-        e.preventDefault();
-        document.getElementById('preloader').classList.remove('hide');
-        setTimeout(() => {
-          window.location.href = url;
-        }, 1200);
+      if (!carouselStates[carouselId]) {
+        carouselStates[carouselId] = {
+          isSliding: false,
+          currentIndex: Math.max(
+            0,
+            slides.findIndex(img => img.classList.contains('active'))
+          )
+        };
       }
+
+      const state = carouselStates[carouselId];
+
+      // Prevent overlapping animations
+      if (state.isSliding) return;
+
+      state.isSliding = true;
+
+      const currentIndex = state.currentIndex;
+      const nextIndex =
+        (currentIndex + direction + slides.length) % slides.length;
+
+      const currentSlide = slides[currentIndex];
+      const nextSlide = slides[nextIndex];
+
+      // Reset and prepare slides
+      slides.forEach(img => {
+        img.classList.remove('slide-left', 'slide-right');
+        img.style.transition = 'none';
+        img.style.opacity = '0';
+        img.style.transform = 'translateX(0)';
+        img.style.zIndex = '1';
+      });
+
+      // Current image
+      currentSlide.classList.add('active');
+      currentSlide.style.opacity = '1';
+      currentSlide.style.transform = 'translateX(0)';
+      currentSlide.style.zIndex = '2';
+
+      // Position next image outside the carousel
+      nextSlide.classList.remove('active');
+      nextSlide.style.opacity = '1';
+      nextSlide.style.transform =
+        direction > 0
+          ? 'translateX(100%)'
+          : 'translateX(-100%)';
+      nextSlide.style.zIndex = '3';
+
+      // Apply initial positions before animation
+      void nextSlide.offsetWidth;
+
+      // Enable smooth transitions
+      currentSlide.style.transition =
+        'transform 0.4s ease, opacity 0.4s ease';
+
+      nextSlide.style.transition =
+        'transform 0.4s ease, opacity 0.4s ease';
+
+      // Animate current image out
+      currentSlide.style.transform =
+        direction > 0
+          ? 'translateX(-100%)'
+          : 'translateX(100%)';
+
+      // Animate next image in
+      nextSlide.style.transform = 'translateX(0)';
+
+      // Finish animation and reset styles
+      setTimeout(() => {
+        slides.forEach((img, index) => {
+          img.style.transition = 'none';
+          img.style.transform = 'translateX(0)';
+          img.style.opacity = '';
+          img.style.zIndex = '';
+
+          img.classList.remove(
+            'active',
+            'slide-left',
+            'slide-right'
+          );
+
+          if (index === nextIndex) {
+            img.classList.add('active');
+          }
+        });
+
+        state.currentIndex = nextIndex;
+        state.isSliding = false;
+      }, 400);
+    }
+
+    // Initialize carousels on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.carousel').forEach(carousel => {
+        const slides = carousel.querySelectorAll(
+          '.carousel-images img'
+        );
+
+        slides.forEach((img, index) => {
+          img.classList.remove(
+            'active',
+            'slide-left',
+            'slide-right'
+          );
+
+          if (index === 0) {
+            img.classList.add('active');
+          }
+        });
+
+        carouselStates[carousel.id] = {
+          isSliding: false,
+          currentIndex: 0
+        };
+      });
     });
-  });
-</script>
+  </script>
+
+  <!-- Preloader Script -->
+  <script>
+    // Show preloader for 1.2 seconds on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        document.getElementById('preloader').classList.add('hide');
+      }, 1200);
+    });
+
+    // Show preloader on navigation
+    document.querySelectorAll('a[href]').forEach(link => {
+      link.addEventListener('click', function(e) {
+        const url = this.getAttribute('href');
+
+        if (
+          url &&
+          !url.startsWith('http') &&
+          !url.startsWith('#') &&
+          !this.hasAttribute('target')
+        ) {
+          e.preventDefault();
+
+          document.getElementById('preloader').classList.remove('hide');
+
+          setTimeout(() => {
+            window.location.href = url;
+          }, 1200);
+        }
+      });
+    });
+  </script>
 </body>
 </html>
