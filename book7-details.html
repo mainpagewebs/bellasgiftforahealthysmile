@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daisy's Journey With Dr. Leo And The Super Blood Cell Team</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Preloader styles -->
+  <style>
+    #preloader {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.3s;
+    }
+
+    #preloader img {
+      width: 500px;
+      height: 500px;
+      border-radius: 32px;
+    }
+
+    #preloader.hide {
+      opacity: 0;
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Preloader -->
+  <div id="preloader">
+    <img src="logo.png" alt="Loading..." />
+  </div>
+
+  <header>
+    <div class="title">My Children's Books</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="blog.html">Blog</a>
+      <a href="mychildrensbooks.html">My Children's Books</a>
+      <a href="accomplishments.html">Accomplishments</a>
+      <a href="personalstatement.html">Personal Statement</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Daisy's Journey With Dr. Leo And The Super Blood Cell Team</h2>
+
+    <div class="details-container">
+      <div class="image-container">
+        <img
+          src="Daisys Journey With Dr Leo And The Super Blood Cell Team.png"
+          alt="Daisy's Journey With Dr. Leo And The Super Blood Cell Team"
+        >
+      </div>
+
+      <div class="text-container">
+        <p><strong>The story of a brave baby cow named Daisy who learns she has cancer and begins treatment to help her body heal. Daisy takes us on a journey inside her body where she meets Dr. Leo the Longhorn and the Super Blood Cell Team, who work together to fight illness and protect her health. Along the way, Daisy learns about chemotherapy, the signs her body gives when something is wrong, and how important it is to take care of her body by staying clean and brushing her teeth to keep germs away. This book is meant to help young children feel calm and supported while learning about medical treatments and how the body works to become strong again. I hope you enjoy this story that teaches children about bravery, healing, and the importance of taking care of their health while following Daisy's journey with Dr. Leo, Dr. Lamb, and the Super Blood Cell Team.</strong></p>
+
+        <a
+          href="https://www.amazon.com/Daisys-Journey-Super-Blood-Cell/dp/B0HG6RCFRG"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="amazon-button"
+        >View on Amazon</a>
+
+        <a href="mychildrensbooks.html" class="back-button">Back to My Children's Books</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Bellas Gift for A Healthy Smile</p>
+  </footer>
+
+  <!-- Preloader script -->
+  <script>
+    // Show preloader for 1.2s on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        document.getElementById('preloader').classList.add('hide');
+      }, 1200);
+    });
+
+    // Show preloader on navigation
+    document.querySelectorAll('a[href]').forEach(link => {
+      link.addEventListener('click', function(e) {
+        const url = this.getAttribute('href');
+
+        if (
+          url &&
+          !url.startsWith('http') &&
+          !url.startsWith('#') &&
+          !this.hasAttribute('target')
+        ) {
+          e.preventDefault();
+          document.getElementById('preloader').classList.remove('hide');
+
+          setTimeout(() => {
+            window.location.href = url;
+          }, 1200);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
